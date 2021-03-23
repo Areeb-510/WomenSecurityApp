@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/safety"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="69dp" />
+
+    <Button
+        android:id="@+id/emergency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:layout_gravity="center_horizontal"
+        android:drawableBottom="@drawable/ic_warning"
+        android:onClick="Callforhelp"
+        android:text="EMERGENCY"
+        android:textColor="#FFEB3B"
+        android:textSize="18sp"
+        app:backgroundTint="#D60E0E"
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="493dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:drawableBottom="@drawable/ic_telephone"
+            android:onClick="CallHelpActivity"
+            android:padding="5dp"
+            android:text=" HELPLINE numbers "
+            app:backgroundTint="#4FAF4C"
+            tools:layout_editor_absoluteX="27dp"
+            tools:layout_editor_absoluteY="603dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:drawableBottom="@drawable/ic_note"
+            android:padding="5dp"
+            android:text="DOCUMENTATION"
+            app:backgroundTint="#4FAF4C"
+            tools:layout_editor_absoluteX="27dp"
+            tools:layout_editor_absoluteY="603dp" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_github" />
+
+</LinearLayout>
+
+
