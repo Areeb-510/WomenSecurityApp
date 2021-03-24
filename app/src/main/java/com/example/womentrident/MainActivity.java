@@ -97,4 +97,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         if(isAccelerometerSensorAvailable)
             sensorManager.unregisterListener(this);
     }
+
+    public void addNumber(View view) {
+
+        Intent intent = new Intent(MainActivity.this,addNumbers.class);
+        startActivity(intent);
+    }
 }

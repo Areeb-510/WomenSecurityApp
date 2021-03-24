@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "81166099285",
+    "project_id": "women-trident",
+    "storage_bucket": "women-trident.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81166099285:android:306345ab45110fd42645dc",
+        "android_client_info": {
+          "package_name": "com.example.womentrident"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "81166099285-dlgfeplhfvs23bsafl60r79q82anoken.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNVbKY3pb5paJcCRz17f9vbw1u85DS7aI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "81166099285-dlgfeplhfvs23bsafl60r79q82anoken.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

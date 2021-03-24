@@ -11,6 +11,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.telephony.SmsManager;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,6 +20,11 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -30,6 +37,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private final long MIN_DIST=5;
 
     private LatLng latLng;
+    DatabaseReference databaseReference;
+    addNumbers obj = new addNumbers();
 
 
     @Override
@@ -44,9 +53,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS}, PackageManager.PERMISSION_GRANTED);
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED );
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET},PackageManager.PERMISSION_GRANTED);
-
+        databaseReference=FirebaseDatabase.getInstance().getReference("Contacts");
 
     }
+
 
     /**
      * Manipulates the map once available.
@@ -74,11 +84,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     mMap.addMarker(new MarkerOptions().position(latLng).title("My location"));
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
-                    String phnum = "";
+                    Log.e("location",location.toString());
+
+                    String phnum="000";
+                    Log.e("phone number",phnum);
                     String myLatitude = String.valueOf(location.getLatitude());
                     String myLongitude = String.valueOf(location.getLongitude());
 
-                    String message = "Latitude"+ myLatitude + "Longitude"+ myLongitude;
+                    String message = "Emergency!!!"+"\nLatitude"+ myLatitude + "Longitude"+ myLongitude;
 
                     SmsManager smsManager = SmsManager.getDefault();
                     smsManager.sendTextMessage(phnum,null,message,null,null);
@@ -115,4 +128,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     }
+//    private String getdata() {
+//         String value;
+//
+//        // calling add value event listener method
+//        // for getting the values from database.
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                // this method is call to get the realtime
+//                // updates in the data.
+//                // this method is called when the data is
+//                // changed in our Firebase console.
+//                // below line is for getting the data from
+//                // snapshot of our database.
+//                 value = snapshot.getValue(String.class);
+//
+//                // after getting the value we are setting
+//                // our value to our text view in below line.
+//
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//                // calling on cancelled method when we receive
+//                // any error or we are not able to get the data.
+//                Toast.makeText(MapsActivity.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        return value;
+//
+//    }
 }
