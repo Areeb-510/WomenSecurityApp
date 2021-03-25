@@ -86,7 +86,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     Log.e("location",location.toString());
 
-                    String phnum="000";
+                    String phnum="8219230363";
                     Log.e("phone number",phnum);
                     String myLatitude = String.valueOf(location.getLatitude());
                     String myLongitude = String.valueOf(location.getLongitude());

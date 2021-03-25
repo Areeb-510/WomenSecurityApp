@@ -103,4 +103,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         Intent intent = new Intent(MainActivity.this,addNumbers.class);
         startActivity(intent);
     }
+
+    public void privacyPolicy(View view) {
+        Intent intent = new Intent(MainActivity.this,PolicyActivity.class);
+        startActivity(intent);
+    }
+
+    public void aboutProject(View view) {
+        Intent intent = new Intent(MainActivity.this,AboutProject.class);
+        startActivity(intent);
+    }
 }

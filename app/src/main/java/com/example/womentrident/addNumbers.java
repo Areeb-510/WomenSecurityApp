@@ -52,6 +52,7 @@ public class addNumbers extends AppCompatActivity {
 
 
     }
+
 //    public String getNumber() {
 //        String number = numbers.getText().toString();
 //        return number;
@@ -61,10 +62,18 @@ public class addNumbers extends AppCompatActivity {
     private void insertContactInfo() {
 
                 String number = numbers.getText().toString();
+                if(number.equals(""))
+                {
+                    Toast.makeText(this, "Please Recheck your Input ", Toast.LENGTH_SHORT).show();
 
-                ContactData contactData = new ContactData(number);
+                }
+                else
+                    {
 
-                databaseReference.push().setValue(contactData);
-        Toast.makeText(this, "Number added", Toast.LENGTH_SHORT).show();
+                    ContactData contactData = new ContactData(number);
+
+                    databaseReference.push().setValue(contactData);
+                    Toast.makeText(this, "Number added", Toast.LENGTH_SHORT).show();
+                }
     }
 }
