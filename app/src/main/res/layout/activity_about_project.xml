@@ -1,9 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AboutProject">
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/page"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:paddingLeft="20dp"
+            android:text="\t       About the App\n  * Women Trident *"
+            android:textStyle="bold"
+            android:textColor="@color/diff"
+            android:textSize="30dp"
+            android:gravity="start" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:paddingLeft="20dp"
+            android:paddingRight="18dp"
+            android:text="This app focusing on seeking help at times of need from the nearest place."
+            android:textStyle="italic"
+            android:textColor="@color/purple_200"
+            android:textSize="20dp"
+            android:gravity="start" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:paddingLeft="20dp"
+            android:paddingRight="18dp"
+            android:text="\nAt the time of help, a message will be notified to people in the nearest range and calls will be made to the contacts that would have been already selected by the user."
+            android:textStyle="italic"
+            android:textColor="@color/purple_200"
+            android:textSize="20dp"
+            android:gravity="start" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:text="\nThe UI interface of the app is kept clean and easy to use with some gesture control already being inbuilt into it."
+            android:textStyle="italic"
+            android:paddingLeft="20dp"
+            android:paddingRight="18dp"
+            android:textColor="@color/purple_200"
+            android:textSize="20dp"
+            android:gravity="start" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/l3"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:shadowColor="#FFEB3B"
+            android:paddingHorizontal="20dp"
+            android:text="\n** Salient features **"
+            android:textAllCaps="true"
+            android:textColor="@color/diff"
+
+            android:textSize="25dp"
+            android:layout_gravity="center"
+            android:textStyle="bold|italic" />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:paddingLeft="20dp"
+            android:paddingRight="18dp"
+            android:text="\n1. On shaking the device the sensor detects the signal and automatically sends the emergency message with user's location."
+            android:textStyle="italic"
+            android:textColorHighlight="@color/diff"
+            android:textColor="@color/purple_500"
+            android:textSize="20dp"
+            android:gravity="start" />
+        <ImageView
+            android:paddingTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shake"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:paddingLeft="20dp"
+            android:paddingRight="18dp"
+            android:text="\n2. The app provides with emergency and helpline numbers with most focus on women security"
+            android:textStyle="italic"
+            android:textColorHighlight="@color/teal_200"
+            android:textColor="@color/purple_500"
+            android:textSize="20dp"
+            android:gravity="start" />
+        <ImageView
+            android:paddingTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/secure"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:paddingLeft="20dp"
+            android:paddingRight="18dp"
+            android:text="\n 3.Add a number to send message in an emergency situation."
+            android:textStyle="italic"
+            android:textColorHighlight="@color/teal_200"
+            android:textColor="@color/purple_500"
+            android:textSize="20dp"
+            android:gravity="start" />
+        <ImageView
+            android:paddingTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/message"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:paddingLeft="20dp"
+            android:paddingRight="18dp"
+            android:text="\n 4. On pressing the button for a particular number it directly calls the number without going to keypad"
+            android:textStyle="italic"
+            android:textColorHighlight="@color/teal_200"
+            android:textColor="@color/purple_500"
+            android:textSize="20dp"
+            android:gravity="start" />
+        <ImageView
+            android:paddingTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/phone"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:paddingLeft="20dp"
+            android:paddingRight="18dp"
+            android:text="\n 4. when a message is sent through this app , live location of the user is also send to the added phone numbers for a quick action according to the situation."
+            android:textStyle="italic"
+            android:textColorHighlight="@color/teal_200"
+            android:textColor="@color/purple_500"
+            android:textSize="20dp"
+            android:gravity="start" />
+        <ImageView
+            android:paddingTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/location"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"/>
+
+    </LinearLayout>
+
+</ScrollView>
