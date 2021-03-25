@@ -13,7 +13,7 @@ import android.widget.ImageView;
 public class SplashScreen extends AppCompatActivity {
     ImageView logo;
     Animation scale;
-    private static int SPLASH_SCREEN= 2000;
+    private static int SPLASH_SCREEN= 1700;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

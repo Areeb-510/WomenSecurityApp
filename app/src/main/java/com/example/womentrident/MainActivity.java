@@ -1,9 +1,12 @@
 package com.example.womentrident;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -26,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         sensorManager= (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
@@ -65,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
              if((xDifference>shakeThreshold&& yDifference>shakeThreshold)||(xDifference>shakeThreshold&&zDifference>shakeThreshold)||(yDifference>shakeThreshold&&zDifference>shakeThreshold))
              {
-                 Intent intent = new Intent(MainActivity.this,HelplineActivity.class);
+                 Intent intent = new Intent(MainActivity.this,MapsActivity.class);
                  startActivity(intent);
              }
         }

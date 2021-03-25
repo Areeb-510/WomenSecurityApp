@@ -1,10 +1,15 @@
 package com.example.womentrident;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -16,10 +21,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -86,15 +93,52 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     Log.e("location",location.toString());
 
-                    String phnum="8219230363";
-                    Log.e("phone number",phnum);
-                    String myLatitude = String.valueOf(location.getLatitude());
-                    String myLongitude = String.valueOf(location.getLongitude());
+                    SharedPreferences sharedPreferences = getSharedPreferences("Contact_Number", Context.MODE_PRIVATE);
+                    String firebase_contact_id = sharedPreferences.getString("reference_id", null);
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("Contacts").child(firebase_contact_id);
 
-                    String message = "Emergency!!!"+"\nLatitude"+ myLatitude + "Longitude"+ myLongitude;
+                    databaseReference.addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                            String phone_number = snapshot.getValue(String.class);
+                            Log.e("contact", phone_number);
+                            String myLatitude = String.valueOf(location.getLatitude());
+                            String myLongitude = String.valueOf(location.getLongitude());
 
-                    SmsManager smsManager = SmsManager.getDefault();
-                    smsManager.sendTextMessage(phnum,null,message,null,null);
+                            String message = "Emergency!!!"+"\nLatitude"+ " " + myLatitude + "Longitude"+ myLongitude;
+
+                            // getting intent and pending intent
+//                            Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+//                            PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+
+                            if (phone_number.length() != 0 && !phone_number.isEmpty()) {
+                                SmsManager smsManager = SmsManager.getDefault();
+                                smsManager.sendTextMessage(phone_number,null, message, null,null);
+                                return;
+                            }
+                        }
+
+                        @Override
+                        public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                        }
+
+                        @Override
+                        public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
                 }
                 catch(Exception e)
                 {
