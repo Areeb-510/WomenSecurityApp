@@ -27,7 +27,7 @@ public class PolicyActivity extends AppCompatActivity {
     }
 
     public void github(View view) {
-        String url = "";
+        String url = "https://github.com/Areeb-510/WomenSecurityApp.git";
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.setData(Uri.parse(url));
         startActivity(i);
